@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputField from "./Components/InputField"
 import { Todo } from "./model";
 import TodoList from "./Components/TodoList";
@@ -7,7 +7,10 @@ import TodoList from "./Components/TodoList";
 const App:React.FC = () => {
 
   const [todo, settodo] = useState<string>("");
-  const [todos, settodos] = useState<Todo[]>([]);
+  const [todos, settodos] = useState<Todo[]>(()=>{
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos? JSON.parse(storedTodos): []
+  });
 
 
   const handleAdd = (e:React.FormEvent) =>{
@@ -18,6 +21,10 @@ const App:React.FC = () => {
       settodo("");
     }
   } 
+
+  useEffect(()=>{
+      localStorage.setItem("todos", JSON.stringify(todos))
+  },[todos])
 
   return (
       <div className="container mx-auto p-4 px-8" >

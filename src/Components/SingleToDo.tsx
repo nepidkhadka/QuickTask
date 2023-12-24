@@ -14,13 +14,13 @@ type Props = {
 
 const SingleToDo = ({ todo, todos, settodos }: Props) => {
     return (
-        <form className=" bg-[#D5B942] rounded-md w-4/5 flex grow justify-between p-2" action="">
-            <span className="bg-[#2f74c0] p-1 rounded-md">{todo.todo}</span>
-            <div className="flex gap-1 items-center">
-                <span className="" ><MdEditOff /></span>
-                <span><MdDeleteForever /></span>
-                <span><MdDoneAll />
-                </span>
+        <form className="border rounded-md flex grow w-full justify-between p-2" action="">
+            <span className="p-1 font-medium text-2xl overflow-auto rounded-md">{todo.todo}</span>
+            <div className="flex gap-2 items-center">
+                <button className="bg-yellow-500 p-1 rounded-md"><MdEditOff /></button>
+                <button className="bg-red-500 p-1 rounded-md" ><MdDeleteForever /></button>
+                <button className="bg-green-500 p-1 rounded-md"  ><MdDoneAll />
+                </button>
             </div>
         </form>
     )
