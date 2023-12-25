@@ -27,8 +27,8 @@ const App:React.FC = () => {
   },[todos])
 
   return (
-      <div className="container mx-auto p-4 px-8" >
-          <h1 className=" font-medium text-2xl text-center">Tasks</ h1>
+      <div className="container mx-auto p-4" >
+          <h1 className=" font-bold text-2xl mt-4 p-2 rounded-lg text-center">QuickTask - Sync Your Productivity</ h1>
           <InputField todo={todo} settodo={settodo} handleAdd={handleAdd} />
           <TodoList todos={todos} settodos={settodos} />
       </div>
