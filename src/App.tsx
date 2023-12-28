@@ -5,7 +5,6 @@ import TodoList from "./Components/TodoList";
 
 
 const App:React.FC = () => {
-
   const [todo, settodo] = useState<string>("");
   const [todos, settodos] = useState<Todo[]>(()=>{
     const storedTodos = localStorage.getItem("todos");
@@ -28,7 +27,7 @@ const App:React.FC = () => {
 
   return (
       <div className="container mx-auto p-4" >
-          <h1 className=" font-bold text-2xl mt-4 p-2 rounded-lg text-center">QuickTask - Sync Your Productivity</ h1>
+          <h1 className="font-bold text-2xl mt-4 p-2 rounded-lg text-center">QuickTask - Sync Your Productivity</ h1>
           <InputField todo={todo} settodo={settodo} handleAdd={handleAdd} />
           <TodoList todos={todos} settodos={settodos} />
       </div>

@@ -41,7 +41,7 @@ const SingleToDo = ({ todo, todos, settodos }: Props) => {
 
 
     return (
-        <form className="border rounded-md flex gap-2 grow w-full justify-between p-2" onSubmit={(e) => handleSubmit(e, todo.id)}>
+        <form className="rounded-md flex gap-2 grow w-full justify-between p-2 bg-primary" onSubmit={(e) => handleSubmit(e, todo.id)}>
             {
                 edit ?
                     (
@@ -50,9 +50,9 @@ const SingleToDo = ({ todo, todos, settodos }: Props) => {
                     :
                     (
                         todo.isDone ?
-                            (<s className="p-1 capitalize font-medium text-2xl overflow-auto rounded-md text-slate-700">{todo.todo}</s>)
+                            (<s className="p-1 capitalize font-medium text-xl overflow-auto rounded-md text-slate-700">{todo.todo}</s>)
                             :
-                            (<span className="p-1 capitalize font-medium text-2xl overflow-auto rounded-md">{todo.todo}</span>)
+                            (<span className="p-1 capitalize font-medium text-xl overflow-auto rounded-md">{todo.todo}</span>)
                     )
             }
 
