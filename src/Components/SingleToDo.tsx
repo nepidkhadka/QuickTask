@@ -47,7 +47,11 @@ const SingleToDo = ({ index, todo, todos, settodos }: Props) => {
             {
                 (provided) => (
 
-                    <form className="rounded-md flex gap-2 grow w-full justify-between p-2 bg-primary hover:scale-[1.02] hover:border hover:cursor-grab" onSubmit={(e) => handleSubmit(e, todo.id)} {...provided.draggableProps}{...provided.dragHandleProps} ref={provided.innerRef} >
+                    <form onSubmit={(e) => handleSubmit(e, todo.id)} 
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps} 
+                    ref={provided.innerRef} 
+                    className="rounded-md flex gap-2 grow w-full justify-between p-2 bg-primary hover:scale-[1.02] hover:border hover:cursor-grab"  >
                         {
                             edit ?
                                 (

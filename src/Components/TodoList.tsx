@@ -12,9 +12,9 @@ type Props = {
 const TodoList = ({ todos, settodos, completedtodos, setcompletedtodos }: Props) => {
   return (
     <div className="flex justify-between gap-8 mt-4">
-      <Droppable droppableId="todolist" >
+      <Droppable droppableId="active" >
         {(provided) => (
-          <div ref={provided.innerRef} {...provided.droppableProps} className="bg-[#0060AA] rounded-lg w-2/4 p-5 ">
+          <div ref={provided.innerRef} {...provided.droppableProps} className="bg-[#0060AA] rounded-lg h-min w-2/4 p-5 ">
             <h2 className=" text-2xl font-medium text-center" >Active Tasks</h2>
             <div className="flex justify-between gap-4 mt-4 flex-col" >
               {todos.map((todo, index) => (
@@ -26,7 +26,8 @@ const TodoList = ({ todos, settodos, completedtodos, setcompletedtodos }: Props)
           </div>
         )}
       </Droppable>
-      <Droppable droppableId="todolistremove" >
+
+      <Droppable droppableId="completed" >
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps} className="bg-[#0060AA] rounded-lg w-2/4 h-min p-5 ">
             <h2 className=" text-2xl font-medium text-center" >Completed Tasks</h2>
