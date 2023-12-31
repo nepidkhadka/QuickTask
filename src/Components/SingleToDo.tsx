@@ -10,9 +10,10 @@ type Props = {
     todos: Todo[],
     settodos: React.Dispatch<React.SetStateAction<Todo[]>>,
     index: number,
+    completed?: boolean,
 }
 
-const SingleToDo = ({ index, todo, todos, settodos }: Props) => {
+const SingleToDo = ({ index, todo, todos, settodos, completed }: Props) => {
     const inputref = useRef<HTMLInputElement>(null)
 
     const [edit, setedit] = useState<boolean>(false);
@@ -47,11 +48,11 @@ const SingleToDo = ({ index, todo, todos, settodos }: Props) => {
             {
                 (provided) => (
 
-                    <form onSubmit={(e) => handleSubmit(e, todo.id)} 
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps} 
-                    ref={provided.innerRef} 
-                    className="rounded-md flex gap-2 grow w-full justify-between p-2 bg-primary hover:scale-[1.02] hover:border hover:cursor-grab"  >
+                    <form onSubmit={(e) => handleSubmit(e, todo.id)}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        className="rounded-md flex gap-2 grow w-full justify-between p-2 bg-primary hover:scale-[1.02] hover:border hover:cursor-grab"  >
                         {
                             edit ?
                                 (
@@ -59,7 +60,7 @@ const SingleToDo = ({ index, todo, todos, settodos }: Props) => {
                                 )
                                 :
                                 (
-                                    todo.isDone ?
+                                    completed ?
                                         (<s className="p-1 capitalize font-medium text-xl overflow-auto rounded-md text-slate-700">{todo.todo}</s>)
                                         :
                                         (<span className="p-1 capitalize font-medium text-xl overflow-auto rounded-md">{todo.todo}</span>)
@@ -67,12 +68,16 @@ const SingleToDo = ({ index, todo, todos, settodos }: Props) => {
                         }
 
                         <div className="flex gap-1 sm:gap-2 items-center">
-                            <span className="bg-yellow-500 p-1 rounded-md hover:bg-yellow-600" onClick={() => {
-                                if (!edit && !todo.isDone) {
-                                    setedit(!edit)
-                                }
-                            }} ><MdEditOff /></span>
-                            <span className="bg-green-500 p-1 rounded-md hover:bg-green-600" onClick={() => handleDone(todo.id)}  ><MdDoneAll /></span>
+                            {
+                                completed ?
+                                    "" : (<span className="bg-yellow-500 p-1 rounded-md hover:bg-yellow-600" onClick={() => {
+                                        if (!edit && !todo.isDone) {
+                                            setedit(!edit)
+                                        }
+                                    }} ><MdEditOff /></span>)
+                            }
+
+                            {/* <span className="bg-green-500 p-1 rounded-md hover:bg-green-600" onClick={() => handleDone(todo.id)}  ><MdDoneAll /></span> */}
                             <span className="bg-red-500 p-1 rounded-md hover:bg-red-600" onClick={() => handleDelete(todo.id)} ><MdDeleteForever /></span>
                         </div>
                     </form>

@@ -33,7 +33,7 @@ const TodoList = ({ todos, settodos, completedtodos, setcompletedtodos }: Props)
             <h2 className=" text-2xl font-medium text-center" >Completed Tasks</h2>
             <div className="flex justify-between gap-4 mt-4 flex-col" >
               {completedtodos.map((todo, index) => (
-                <SingleToDo index={index} todo={todo} key={todo.id} todos={todos} settodos={setcompletedtodos} />
+                <SingleToDo index={index} todo={todo} completed={true} key={todo.id} todos={todos} settodos={setcompletedtodos} />
               ))
               }
             {provided.placeholder}
