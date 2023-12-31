@@ -70,15 +70,15 @@ const SingleToDo = ({ index, todo, todos, settodos, completed }: Props) => {
                         <div className="flex gap-1 sm:gap-2 items-center">
                             {
                                 completed ?
-                                    "" : (<span className="bg-yellow-500 p-1 rounded-md hover:bg-yellow-600" onClick={() => {
+                                    "" : (<span className="bg-yellow-500 p-1 rounded-md hover:bg-yellow-600 cursor-default" onClick={() => {
                                         if (!edit && !todo.isDone) {
                                             setedit(!edit)
                                         }
                                     }} ><MdEditOff /></span>)
                             }
 
-                            {/* <span className="bg-green-500 p-1 rounded-md hover:bg-green-600" onClick={() => handleDone(todo.id)}  ><MdDoneAll /></span> */}
-                            <span className="bg-red-500 p-1 rounded-md hover:bg-red-600" onClick={() => handleDelete(todo.id)} ><MdDeleteForever /></span>
+                            {/* <span className="bg-green-500 p-1 rounded-md hover:bg-green-600 cursor-default" onClick={() => handleDone(todo.id)}  ><MdDoneAll /></span> */}
+                            <span className="bg-red-500 p-1 rounded-md hover:bg-red-600 cursor-default" onClick={() => handleDelete(todo.id)} ><MdDeleteForever /></span>
                         </div>
                     </form>
                 )

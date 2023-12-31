@@ -53,12 +53,12 @@ const App: React.FC = () => {
       active.splice(destination.index, 0, add)
     } else {
       complete.splice(destination.index, 0, add)
+      
     }
 
     setcompletedtodos(complete);
     settodos(active);
-
-  }
+    }
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos))
