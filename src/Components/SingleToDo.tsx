@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Todo } from "../model"
 import { MdEditOff } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
-import { MdDoneAll } from "react-icons/md";
+// import { MdDoneAll } from "react-icons/md";
 import { Draggable } from "react-beautiful-dnd";
-
+// 
 type Props = {
     todo: Todo,
     todos: Todo[],
@@ -23,11 +23,11 @@ const SingleToDo = ({ index, todo, todos, settodos, completed }: Props) => {
         settodos(todos.filter(todo => todo.id !== id))
     }
 
-    const handleDone = (id: number) => {
-        settodos(todos.map((todo) => (
-            todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-        )))
-    }
+    // const handleDone = (id: number) => {
+    //     settodos(todos.map((todo) => (
+    //         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+    //     )))
+    // }
 
     const handleSubmit = (e: React.FormEvent, id: number) => {
         e.preventDefault();
